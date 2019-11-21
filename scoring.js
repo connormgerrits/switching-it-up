@@ -35,7 +35,7 @@ function calculateReturnScore(player) {
   return parseFloat((kickYards + kickTouchdowns + kickFumbles + puntYards + puntTouchdowns + puntFumbles).toFixed(2))
 }
 
-module.exports.calculateScore = function (player) {
+function calculateScore (player) {
   switch(player.position) {
     case 'QB':
       return calculatePassingScore(player) + calculateRushingScore(player)
@@ -49,3 +49,8 @@ module.exports.calculateScore = function (player) {
       return 0
   }
 }
+
+module.exports.calculatePassingScore = calculatePassingScore
+module.exports.calculateReceivingScore = calculateReceivingScore
+module.exports.calculateScore = calculateScore
+module.exports.calculateRushingScore = calculateRushingScore
